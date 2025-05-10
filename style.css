@@ -176,7 +176,6 @@ ul li {
   display: block;
 }
 
-
 .contact-container {
   display: flex;
   justify-content: space-around;
@@ -253,6 +252,7 @@ ul li {
 .contact-form button:hover {
   background-color:rgb(105, 155, 44,0.9); 
 }
+
 .contact-form textarea {
   width: 100%;
   max-width: 520px;
@@ -273,6 +273,7 @@ ul li {
   color: white;
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
+
 .day-box-right {
   flex: 1 1 250px;
   margin: 20px;
@@ -283,6 +284,7 @@ ul li {
   color: white;
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
+
 .day-container {
   display: flex;
   align-items: stretch; 
@@ -324,5 +326,18 @@ ul li {
 
   .day-container .photo, .day-container .text {
     flex: 1 1 100%;
+  }
+
+  .day-box-left, .day-box-right {
+    flex: 1 1 100%;
+    margin: 10px 0;
+  }
+
+  .contact-form input {
+    width: 100%;
+  }
+
+  .contact-form textarea {
+    width: 100%;
   }
 }
