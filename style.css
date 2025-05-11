@@ -295,8 +295,8 @@ ul li {
 
 .day-container .photo img {
   max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
@@ -356,11 +356,29 @@ ul li {
     align-items: center;
     text-align: center;
   }
+
+  /* Хедер: мобільний */
+  .header-content {
+    padding: 10px;
+  }
+
+  .left img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .left h1 {
+    font-size: 20px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 576px) {
   .nav-link {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .dropbtn {
