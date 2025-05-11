@@ -1,3 +1,4 @@
+/* Базова скидання */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,14 +10,16 @@ body {
   background: linear-gradient(to top, rgba(48, 48, 48, 1), rgba(117, 117, 117, 1)); 
   color: white;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
+/* Хедер */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to left,rgb(105, 155, 44,0.9),rgb(45, 74, 26,0.9)); 
+  background: linear-gradient(to left, rgba(105, 155, 44, 0.9), rgba(45, 74, 26, 0.9));
   padding: 10px 20px;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -26,6 +29,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .left {
@@ -35,16 +39,16 @@ header {
 }
 
 .left img {
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   border-radius: 5px;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .left h1 {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   margin: 0;
-  line-height: 1; 
+  line-height: 1;
 }
 
 .logo-link {
@@ -54,7 +58,8 @@ header {
 
 .right {
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .nav-link {
@@ -68,30 +73,32 @@ header {
   color: #ffee88;
 }
 
+/* Основний контент */
 main {
   margin: 100px auto 50px auto;
-  max-width: 75%;
-  padding: 40px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
   border-radius: 12px;
-  background: linear-gradient(to bottom, rgba(49, 49, 49, 0.85), rgba(21, 21, 21, 0.85)); 
+  background: linear-gradient(to bottom, rgba(49, 49, 49, 0.85), rgba(21, 21, 21, 0.85));
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 main h1 {
   text-align: center;
-  font-size: 36px;
+  font-size: clamp(24px, 5vw, 36px);
   margin-bottom: 20px;
   color: #f1f1f1;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: clamp(20px, 3vw, 28px);
   margin: 30px 0 15px;
   color: #a6f1d8;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: clamp(18px, 2.5vw, 22px);
   margin: 20px 0 10px;
   color: #d3e5ff;
   font-style: italic;
@@ -117,6 +124,7 @@ ul li {
   margin-bottom: 8px;
 }
 
+/* Форми */
 .forms {
   width: 100%;
   max-width: 800px;
@@ -128,6 +136,7 @@ ul li {
   display: block;
 }
 
+/* Випадаюче меню */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -176,12 +185,13 @@ ul li {
   display: block;
 }
 
+/* Контакти */
 .contact-container {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
-  background: linear-gradient(to left,rgb(105, 155, 44,0.9),rgb(45, 74, 26,0.9)); 
+  background: linear-gradient(to left, rgba(105, 155, 44, 0.9), rgba(45, 74, 26, 0.9));
   padding: 40px 20px;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
@@ -189,7 +199,7 @@ ul li {
 }
 
 .contact-box {
-  flex: 1 1 250px;
+  flex: 1 1 280px;
   margin: 20px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 16px;
@@ -215,13 +225,6 @@ ul li {
   font-size: 16px;
 }
 
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 .contact-form {
   display: flex;
   flex-wrap: wrap;
@@ -230,17 +233,19 @@ ul li {
   margin-bottom: 40px;
 }
 
-.contact-form input {
+.contact-form input,
+.contact-form textarea {
   padding: 12px;
   border: none;
   border-radius: 8px;
-  width: 250px;
   font-size: 16px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .contact-form button {
   padding: 12px 24px;
-  background-color:rgba(64, 105, 37, 0.9);
+  background-color: rgba(64, 105, 37, 0.9);
   color: white;
   border: none;
   border-radius: 8px;
@@ -250,44 +255,31 @@ ul li {
 }
 
 .contact-form button:hover {
-  background-color:rgb(105, 155, 44,0.9); 
+  background-color: rgba(105, 155, 44, 0.9);
 }
 
-.contact-form textarea {
-  width: 100%;
-  max-width: 520px;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  resize: vertical;
+/* Дні */
+.day-box-left, .day-box-right {
+  flex: 1 1 300px;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
 .day-box-left {
-  flex: 1 1 250px;
-  margin: 20px;
-  background: linear-gradient(to right,rgba(48, 48, 48, 0.9),rgba(57, 91, 34, 0.9));
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  background: linear-gradient(to right, rgba(48, 48, 48, 0.9), rgba(57, 91, 34, 0.9));
 }
 
 .day-box-right {
-  flex: 1 1 250px;
-  margin: 20px;
-  background: linear-gradient(to right,rgba(88, 129, 37, 0.9),rgb(45, 74, 26,0.9));
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  background: linear-gradient(to right, rgba(88, 129, 37, 0.9), rgba(45, 74, 26, 0.9));
 }
 
 .day-container {
   display: flex;
-  align-items: stretch; 
+  align-items: stretch;
   justify-content: space-between;
   gap: 30px;
   margin-bottom: 60px;
@@ -297,12 +289,12 @@ ul li {
 .day-container .photo {
   flex: 1 1 40%;
   display: flex;
-  align-items: center;  
+  align-items: center;
   justify-content: center;
 }
 
 .day-container .photo img {
-  max-height: 90%;
+  max-height: 100%;
   max-width: 100%;
   object-fit: contain;
   border-radius: 12px;
@@ -310,6 +302,7 @@ ul li {
 }
 
 .day-container .text {
+  flex: 1 1 55%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -318,26 +311,72 @@ ul li {
   line-height: 1.6;
 }
 
+/* 📱 Медійні запити */
+@media (max-width: 1200px) {
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .right {
+    justify-content: center;
+  }
+
+  main {
+    padding: 30px 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .day-container {
-    flex-direction: column !important;
+    flex-direction: column;
     text-align: center;
   }
 
-  .day-container .photo, .day-container .text {
-    flex: 1 1 100%;
-  }
-
-  .day-box-left, .day-box-right {
+  .day-container .photo,
+  .day-container .text,
+  .day-box-left,
+  .day-box-right {
     flex: 1 1 100%;
     margin: 10px 0;
   }
 
-  .contact-form input {
-    width: 100%;
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
   }
 
+  .contact-form input,
   .contact-form textarea {
-    width: 100%;
+    max-width: 100%;
   }
+
+  .left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .dropbtn {
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4, p {
+    text-align: center;
+  }
+}
+/* Глобальні стилі для iframe та img */
+iframe, img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
