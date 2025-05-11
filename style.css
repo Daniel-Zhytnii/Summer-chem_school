@@ -371,12 +371,3 @@ ul li {
     text-align: center;
   }
 }
-/* Глобальні стилі для iframe та img */
-iframe, img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-  margin: 20px auto;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-}
